@@ -11,7 +11,7 @@ function routeMaker(cityId) {
   routeObj[{cityId}.cityId] = {destId}.destId;
   console.log(routeObj)
 
-  })
+})
   })
 }
 
@@ -43,8 +43,40 @@ function enterCity(answer) {
 
 // variables
 
-var cityObj = {};
-var routeObj = {};
+var cityObj = {
+  CGY: 'Calgary',
+  CI: "Chichen Itza",
+  K: "Kuala Lampur",
+  M: "Moscow",
+  NYC: "New York City",
+  P: "Paris",
+  RI: 'Rio de Janeiro',
+  RO: "Rome",
+  TO: "Toronto",
+};
+
+var routeObj = {
+  RI: "NYC",
+  RI: "CI",
+  RI: "TO",
+  P: "TO",
+  P: "RO",
+  P: "M",
+  NYC: "CGY",
+  NYC: "K",
+  CGY: "CI",
+  CGY: "K",
+  CGY: "TO",
+  CI: "RI",
+  K: "M",
+  K: "RO",
+  K: "P",
+  M: "RO",
+  M: "TO",
+  RO: "M",
+  RO: "CGY",
+  TO: "NYC",
+};
 
 // app
 
