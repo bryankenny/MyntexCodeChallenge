@@ -3,17 +3,14 @@ const readline = require('readline').createInterface({
   output: process.stdout
 })
 
-var cityId = {};
+var cityObj = {};
 
-readline.question(`What's your name?`, (name) => {
+readline.question(`What's the city's ID? `, (cityId) => {
+  console.log(`Hi ${cityId}!`)
+  readline.question(`The name of the city? `, (name) => {
   console.log(`Hi ${name}!`)
-  readline.question(`What's your age?`, (age) => {
-  console.log(`Hi ${age}!`)
-  // cityId[{name}] = {age}
-  // console.log({name}.name)
-  // console.log({age}.age)
-  cityId[{name}.name] = {age}.age;
-  console.log(cityId)
+  cityObj[{cityId}.cityId] = {name}.name;
+  console.log(cityObj)
   readline.close()
 })
 })
