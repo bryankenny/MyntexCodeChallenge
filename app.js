@@ -111,31 +111,40 @@ var cityObj = {
 };
 
 var routeObj = {
-  RI: "NYC",
-  RI: "CI",
-  RI: "TO",
-  P: "TO",
-  P: "RO",
-  P: "M",
-  NYC: "CGY",
-  NYC: "K",
-  CGY: "CI",
-  CGY: "K",
-  CGY: "TO",
-  CI: "RI",
-  K: "M",
-  K: "RO",
-  K: "P",
-  M: "RO",
-  M: "TO",
-  RO: "M",
-  RO: "CGY",
-  TO: "NYC",
+  RI2NYC: true,
+  RI2CI: true,
+  RI2TO: true,
+  P2TO: true,
+  P2RO: true,
+  P2M: true,
+  NYC2CGY: true,
+  NYC2K: true,
+  CGY2CI: true,
+  CGY2K: true,
+  CGY2TO: true,
+  CI2RI: true,
+  K2M: true,
+  K2RO: true,
+  K2P: true,
+  M2RO: true,
+  M2TO: true,
+  RO2M: true,
+  RO2CGY: true,
+  TO2NYC: true,
 };
 
 // functions
 
+function checkTime() {
 
+  var startToEnd = departureCity + '2' + destCity;
+  console.log(startToEnd)
+
+  // if (departureCity + '2' + destCity = true) {
+  //   console.log('winz')
+  // }
+
+}
 
 // app
 
@@ -155,6 +164,8 @@ readline.question(`Please enter your departure city: `, (answer) => {
 readline.question(`Please enter your destination city: `, (answer) => {
   destCity = answer;
   console.log(destCity)
+
+  checkTime();
 
 })
 })
