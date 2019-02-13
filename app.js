@@ -3,6 +3,8 @@
 var homeCity;
 var destCity;
 var departureCity;
+var desiredTravelTime;
+var travelTime = 1;
 
 var cityObj = {
   CGY: 'Calgary',
@@ -41,17 +43,18 @@ var routeObj = {
 
 // functions
 
-function checkTime() {
+function checkRoute() {
 
   var startToEnd = departureCity + '2' + destCity;
   var fin;
 
 Object.keys(routeObj).forEach(key => {
   let value = routeObj[key];
-  // console.log(key + value)
-  if (startToEnd === key) {
-    console.log('finally')
+
+  if (startToEnd === key && homeCity === destCity && travelTime < desiredTravelTime) {
+    console.log('Success! A route was found!')
   }
+
   else {
 
   }
@@ -81,11 +84,14 @@ readline.question(`Please enter your destination city: `, (destCityParameter) =>
   destCity = destCityParameter;
   console.log(destCity)
 
-  checkTime();
+readline.question(`Please enter your preffered travel time: `, (travelTimeParameter) => {
+  desiredTravelTime = travelTimeParameter;
+
+  checkRoute();
 
 })
 })
 })
-
+})
 
 
