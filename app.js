@@ -46,16 +46,6 @@ function checkTime() {
   var startToEnd = departureCity + '2' + destCity;
   var fin;
 
-   // console.log(Object.keys(routeObj))
-  // for (var i=0; i<routeObj.length; i++){
-  //   console.log(startToEnd);
-  //   console.log(Object.keys(routeObj))
-  // }
-
-//   for (var i in routeObj) {
-//       console.log(Object.keys(routeObj))
-//   }
-
 Object.keys(routeObj).forEach(key => {
   let value = routeObj[key];
   // console.log(key + value)
@@ -63,7 +53,7 @@ Object.keys(routeObj).forEach(key => {
     console.log('finally')
   }
   else {
-    console.log('yessum')
+
   }
 
 });
