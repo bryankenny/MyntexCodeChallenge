@@ -6,6 +6,8 @@ var departureCity;
 var desiredTravelTime;
 var travelTime = 1;
 
+// objects
+
 var cityObj = {
   CGY: 'Calgary',
   CI: "Chichen Itza",
@@ -51,12 +53,20 @@ function checkRoute() {
 Object.keys(routeObj).forEach(key => {
   let value = routeObj[key];
 
-  if (startToEnd === key && homeCity === destCity && travelTime < desiredTravelTime) {
+  if (startToEnd === key && homeCity === destCity && travelTime <= desiredTravelTime) {
     console.log('Success! A route was found!')
   }
 
-  else {
+  if (startToEnd === key && homeCity != destCity) {
+    travelTime += 1;
 
+    if (travelTime <= desiredTravelTime) {
+      console.log('Success! A route was found!')
+    }
+
+    else {
+      console.log('Sorry, no route was found.')
+    }
   }
 
 });
