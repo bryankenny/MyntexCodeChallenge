@@ -45,11 +45,27 @@ var routeObj = {
 
 // functions
 
+function checkTime() {
+
+  var startToEnd = departureCity + '2' + destCity;
+
+      Object.keys(routeObj).forEach(key => {
+
+        let value = routeObj[key];
+
+        if (key.substring(0, 3) === startToEnd.substring(0, 3)) {
+           console.log(key)
+        }
+
+      });
+}
+
 function checkRoute() {
 
   var startToEnd = departureCity + '2' + destCity;
 
     Object.keys(routeObj).forEach(key => {
+
       let value = routeObj[key];
 
       if (startToEnd === key && homeCity === destCity && travelTime <= desiredTravelTime) {
@@ -77,9 +93,9 @@ function checkRoute() {
         }
       }
 
-      if (startToEnd != key) {
-
-      }
+      // else if (key != startToEnd) {
+      //   checkTime();
+      // }
 
   });
 
@@ -110,6 +126,7 @@ readline.question(`How long can it take? `, (travelTimeParameter) => {
   desiredTravelTime = travelTimeParameter;
 
   checkRoute();
+  checkTime();
 
 })
 })

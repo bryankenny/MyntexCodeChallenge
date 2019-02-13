@@ -139,3 +139,15 @@ readline.question(`Enter a new city ID/name? y/n `, (answer) => {
     // }
   }
 
+
+
+
+  else if (startToEnd != key) {
+
+        if (homeCity != destCity) {
+
+          travelTime += 1;
+          console.log("hello")
+        }
+      }
+
