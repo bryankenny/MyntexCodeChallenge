@@ -54,7 +54,8 @@ function checkTime() {
         let value = routeObj[key];
 
         if (key.substring(0, 3) === startToEnd.substring(0, 3)) {
-           console.log(key)
+           var newKey = key;
+
         }
 
       });
