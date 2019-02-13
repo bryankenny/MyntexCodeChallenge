@@ -48,28 +48,40 @@ var routeObj = {
 function checkRoute() {
 
   var startToEnd = departureCity + '2' + destCity;
-  var fin;
 
-Object.keys(routeObj).forEach(key => {
-  let value = routeObj[key];
+    Object.keys(routeObj).forEach(key => {
+      let value = routeObj[key];
 
-  if (startToEnd === key && homeCity === destCity && travelTime <= desiredTravelTime) {
-    console.log('Success! A route was found!')
-  }
+      if (startToEnd === key && homeCity === destCity && travelTime <= desiredTravelTime) {
+        console.log('* Success! A route was found! *')
+        readline.close()
+      }
 
-  if (startToEnd === key && homeCity != destCity) {
-    travelTime += 1;
+      else if (startToEnd === key && homeCity === destCity && travelTime > desiredTravelTime) {
+        console.log('* Sorry, no route was found. *')
+        readline.close()
+      }
 
-    if (travelTime <= desiredTravelTime) {
-      console.log('Success! A route was found!')
-    }
+      else if (startToEnd === key && homeCity != destCity) {
 
-    else {
-      console.log('Sorry, no route was found.')
-    }
-  }
+        travelTime += 1;
 
-});
+        if (travelTime <= desiredTravelTime) {
+          console.log('* Success! A route was found! *')
+          readline.close()
+        }
+
+        else {
+          console.log('* Sorry, no route was found. *')
+          readline.close()
+        }
+      }
+
+      if (startToEnd != key) {
+
+      }
+
+  });
 
 }
 
@@ -94,7 +106,7 @@ readline.question(`Please enter your destination city: `, (destCityParameter) =>
   destCity = destCityParameter;
   console.log(destCity)
 
-readline.question(`Please enter your preffered travel time: `, (travelTimeParameter) => {
+readline.question(`How long can it take? `, (travelTimeParameter) => {
   desiredTravelTime = travelTimeParameter;
 
   checkRoute();
