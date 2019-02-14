@@ -21,26 +21,26 @@ var cityObj = {
 };
 
 var routeObj = {
-  RI2NYC: true,
-  RI2CI: true,
-  RI2TO: true,
-  P2TO: true,
-  P2RO: true,
-  P2M: true,
-  NYC2CGY: true,
-  NYC2K: true,
-  CGY2CI: true,
-  CGY2K: true,
-  CGY2TO: true,
-  CI2RI: true,
-  K2M: true,
-  K2RO: true,
-  K2P: true,
-  M2RO: true,
-  M2TO: true,
-  RO2M: true,
-  RO2CGY: true,
-  TO2NYC: true,
+  RI2NYC: "NYC",
+  RI2CI: "CI",
+  RI2TO: "TO",
+  P2TO: "TO",
+  P2RO: "RO",
+  P2M: "M",
+  NYC2CGY: "CGY",
+  NYC2K: "K",
+  CGY2CI: "CI",
+  CGY2K: "K",
+  CGY2TO: "TO",
+  CI2RI: "RI",
+  K2M: "M",
+  K2RO: "RO",
+  K2P: "P",
+  M2RO: "RO",
+  M2TO: "TO",
+  RO2M: "M",
+  RO2CGY: "CGY",
+  TO2NYC: "NYC"
 };
 
 // functions
@@ -52,9 +52,12 @@ function checkTime() {
       Object.keys(routeObj).forEach(key => {
 
         let value = routeObj[key];
+        var routeObjKeyDest = key.split("2").pop();
 
         if (key.substring(0, 3) === startToEnd.substring(0, 3)) {
+
            var newKey = key;
+           console.log(newKey);
 
         }
 
@@ -68,6 +71,7 @@ function checkRoute() {
     Object.keys(routeObj).forEach(key => {
 
       let value = routeObj[key];
+      var routeObjKeyDest = key.split("2").pop();
 
       if (startToEnd === key && homeCity === destCity && travelTime <= desiredTravelTime) {
         console.log('* Success! A route was found! *')
@@ -89,14 +93,13 @@ function checkRoute() {
         }
 
         else {
-          console.log('* Sorry, no route was found. *')
+          console.log('* Sorry, no route was found (perhaps because of time). *')
+          console.log("* Here are the destinations available from your departure city: *")
           readline.close()
+          checkTime();
         }
       }
 
-      // else if (key != startToEnd) {
-      //   checkTime();
-      // }
 
   });
 
@@ -127,7 +130,7 @@ readline.question(`How long can it take? `, (travelTimeParameter) => {
   desiredTravelTime = travelTimeParameter;
 
   checkRoute();
-  checkTime();
+  // checkTime();
 
 })
 })
